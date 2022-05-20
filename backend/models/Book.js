@@ -4,11 +4,23 @@ const mongoose = require("mongoose");
 const Book = new mongoose.Schema({ 
   book:{
     type : String,
-    required: true
+    // required: true
   },
   author: {
     type: String,
-    required: true, 
+    // required: true, 
+  },
+  price: {
+    type: Number,
+    // required: true, 
+  },
+  description:{
+    type: String,
+    // required: true,
+  },
+  image:{
+    type: String,
+    // required: true,
   },
 });
 

@@ -1,0 +1,37 @@
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 140px;
+    height: 170px;
+}
+.bookName{
+    width: 200px;
+    height: 40px;
+    color: lightblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bookName h5{
+    font-size: medium;
+}
+
+.bookstore{
+    background-color: black;
+    width: 1300px;
+    margin: 20px; 
+    padding-left: 0;
+    margin-top: 70px;
+    height: auto
+  }
+
+  .card {
+    margin: 10px;
+    padding: 20px;
+    width: 230px;
+    box-shadow: 5px 5px 10px rgb(68, 67, 67);
+    ;
+}

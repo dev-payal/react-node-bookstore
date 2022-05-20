@@ -4,24 +4,29 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import UserContext from '../context/userContext';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate()
-
+	// const { setUserData } = useContext(UserContext);
 	const handleSubmit = async (event) => {
 			event.preventDefault();
 			await axios.post('http://localhost:4000/api/v1/login/', {
 					email,
 					password,
 			}).then(function (res){
-				toast('Login successful')
-				console.log(res);
 				const token = res.data['user'];
-				localStorage.setItem('token', token)
+				// setUserData({
+				// 	token: token,
+				// 	user: res.data.user
+				// })
 				console.log({token: token});
+				sessionStorage.setItem("auth-token", token)
+				toast('Login successful')
 				navigate('/user/bookstore')
+				
 			}).catch( function(err){
 				toast("Login failed! Email or password is wrong!");
 				console.log(err)
@@ -32,7 +37,7 @@ export default function Login() {
 		<div className="signup-form">
 			<form onSubmit={handleSubmit} method="post">
 				<h2>Member Login</h2>
-				<p>Please enter the details to login to your account!</p>
+				<p style={{position:'relative', right: '18px'}}>Please enter the details to login to your account!</p>
 				<hr />
 				<div className="form-group">
 					<div className="input-group">
